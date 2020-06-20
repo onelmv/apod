@@ -11,6 +11,10 @@ const Body =(props)=>{
                 <p>{props.date.year}-{props.date.month}-{props.date.day}</p> {/* accediento a travex de un objetp */}
                 <Card />
             </div>
+
+            {
+                
+            }
             
         </Fragment>
     )
