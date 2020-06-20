@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header.js'
 import SearchField from './components/SearchField.js'
@@ -9,47 +9,36 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      date: '',
+      date: new Date().toJSON().slice(0,10),
       apod: null
     }
   }
  
+
+  
   /* ////////////////////////////////// */
 
   componentDidMount(){
+    
     const nasa_key= 'DkNMzkFMlHAPPxLOvNGqeAnCkAyrmOtBIjhg1Rgs';
-    fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasa_key}`)
-        .then(response=> {
-          return response.json()
-        })
-        .then((i)=>{
-          this.setState({apod:i})
-        })
-    
-    
-        console.log(fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasa_key}`)
-        .then(response=> {
-          return response.json()
-        })
-        .then((i)=>{
-          this.setState({apod:i})
-    
-    }))
+    console.log(nasa_key)
+    /* https://api.nasa.gov/planetary/apod?api_key=DkNMzkFMlHAPPxLOvNGqeAnCkAyrmOtBIjhg1Rgs */
+    fetch(`https://api.nasa.gov/planetary/apod?date=${this.state.date}&api_key=${nasa_key}`)
+          .then(response=>response.json())
+          .then(data=>this.setState({apod:data}))
+
+     console.log(this.state.apod) 
   }
 
-
+  
 
 
   /* ////////////////////////////////// */
   /* //* catch every time search field change */
   onDateFieldChange =(event)=>{
-    this.setState({ year: event.target.value })
-    
-    /* //todo const filterByYear  */
-
-
-    console.log(this.state.date)
-
+    this.setState({ date: event.target.value })
+     
+    console.log(`cambia en app`,this.state.date)
   }
  
 
@@ -58,8 +47,8 @@ class App extends Component {
     return (
       <div className="tc f2 lh-copy georgia bg-light-blue ">
         <Header />
-        <SearchField dateChange={this.onDateFieldChange}/>
-        <Body date={this.state}/>
+        <SearchField dateChange={this.onDateFieldChange} date={this.state.date}/>
+        <Body date={this.state.date}/>
       </div>
     );
   }
