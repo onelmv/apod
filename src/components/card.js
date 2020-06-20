@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 
 
-const Card =()=>{
+const Card =(props)=>{
     return (
         <Fragment>
             <div>
-                <p>cardssssss</p>
+                <p>hghgf</p>
 
             </div>
         </Fragment>
