@@ -8,7 +8,8 @@ const Body =(props)=>{
         <Fragment>
             <div>
                 {/* //// <p>{props.date[1]}</p>  accedinedo a travez de un arrrelgo */}
-                <p>{props.date.day}</p> {/* accediento a travex de un objetp */}
+                <p>{props.date.year}-{props.date.month}-{props.date.day}</p> {/* accediento a travex de un objetp */}
+                <Card />
             </div>
             
         </Fragment>
