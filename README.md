@@ -6,4 +6,4 @@
 🪐 Simple React app using  [NASA API](https://api.nasa.gov/#apod) 
 
 
-📦️ Tachycons css
+📦️ Tachyons css

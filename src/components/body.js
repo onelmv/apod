@@ -7,8 +7,8 @@ const Body =(props)=>{
 
         <Fragment>
             <div>
-                <p>{props.date[1]}</p> {/* accedinedo a travez de un arrrelgo */}
-                <p>{props.d.day}</p> {/* accediento a travex de un objetp */}
+                {/* //// <p>{props.date[1]}</p>  accedinedo a travez de un arrrelgo */}
+                <p>{props.date.day}</p> {/* accediento a travex de un objetp */}
             </div>
             
         </Fragment>
