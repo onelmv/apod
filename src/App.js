@@ -13,35 +13,33 @@ class App extends Component {
       apod: {}
     }
   }
+
   /* ////////////////////////////////// */
 
   componentDidMount(){
-    
-    this.fetchData(this.state.date);
-   
+    this.fetchData(this.state.date);   
   }
 
   fetchData(date){
-    const nasa_key= 'DkNMzkFMlHAPPxLOvNGqeAnCkAyrmOtBIjhg1Rgs';
-    
+    const nasa_key= 'DkNMzkFMlHAPPxLOvNGqeAnCkAyrmOtBIjhg1Rgs';    
 
     fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=${nasa_key}`)
           .then(response=>response.json())
           .then(json=>this.setState({apod:json})
-          )
-          
-    /* console.log(this.state.date,this.state.apod.date) */
+          )          
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    console.log('componentDidUpdate', this.state.date, prevState.date);
+    if (this.state.date !== prevState.date)
+      this.fetchData(this.state.date);   
   }
 
   /* ////////////////////////////////// */
-  /* //* catch every time search field change */
   onDateFieldChange =(event)=>{
     this.setState({ date: event.target.value })
      
-    console.log("event:",event.target.value,"|state: ",this.state.date) //!problems
-    
-    this.fetchData(this.state.date)
-    
+    console.log("event:",event.target.value,"|state: ",this.state.date)     
   }
  
 
@@ -51,11 +49,10 @@ class App extends Component {
       <div className="tc f2 lh-copy georgia bg-light-blue ">
         <Header />
         <SearchField dateChange={this.onDateFieldChange} date={this.state.date} />
-        <Body date={this.state.date} apod={this.state.apod} t={this}/>
+        <Body date={this.state.date} apod={this.state.apod} />
       </div>
     );
   }
-
 }
 
 export default App;
