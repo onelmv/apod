@@ -33,6 +33,12 @@ class App extends Component {
     /* console.log(this.state.date,this.state.apod.date) */
   }
 
+  componentDidUpdate(prevProps, prevState){
+    console.log('componentDidUpdate', this.state.date, prevState.date);
+    if (this.state.date !== prevState.date)
+      this.fetchData(this.state.date);   
+  }
+
   /* ////////////////////////////////// */
   /* //* catch every time search field change */
   onDateFieldChange =(event)=>{
@@ -40,7 +46,7 @@ class App extends Component {
      
     console.log("event:",event.target.value,"|state: ",this.state.date) //!problems
     
-    this.fetchData(this.state.date)
+   /*  this.fetchData(this.state.date) */
     
   }
  
