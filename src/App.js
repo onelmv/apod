@@ -10,35 +10,38 @@ class App extends Component {
     super()
     this.state = {
       date: new Date().toJSON().slice(0,10),
-      apod: null
+      apod: {}
     }
   }
- 
-
-  
   /* ////////////////////////////////// */
 
   componentDidMount(){
     
-    const nasa_key= 'DkNMzkFMlHAPPxLOvNGqeAnCkAyrmOtBIjhg1Rgs';
-    console.log(nasa_key)
-    /* https://api.nasa.gov/planetary/apod?api_key=DkNMzkFMlHAPPxLOvNGqeAnCkAyrmOtBIjhg1Rgs */
-    fetch(`https://api.nasa.gov/planetary/apod?date=${this.state.date}&api_key=${nasa_key}`)
-          .then(response=>response.json())
-          .then(data=>this.setState({apod:data}))
-
-     console.log(this.state.apod) 
+    this.fetchData(this.state.date);
+   
   }
 
-  
+  fetchData(date){
+    const nasa_key= 'DkNMzkFMlHAPPxLOvNGqeAnCkAyrmOtBIjhg1Rgs';
+    
 
+    fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=${nasa_key}`)
+          .then(response=>response.json())
+          .then(json=>this.setState({apod:json})
+          )
+          
+    /* console.log(this.state.date,this.state.apod.date) */
+  }
 
   /* ////////////////////////////////// */
   /* //* catch every time search field change */
   onDateFieldChange =(event)=>{
     this.setState({ date: event.target.value })
      
-    console.log(`cambia en app`,this.state.date)
+    console.log("event:",event.target.value,"|state: ",this.state.date) //!problems
+    
+    this.fetchData(this.state.date)
+    
   }
  
 
@@ -47,8 +50,8 @@ class App extends Component {
     return (
       <div className="tc f2 lh-copy georgia bg-light-blue ">
         <Header />
-        <SearchField dateChange={this.onDateFieldChange} date={this.state.date}/>
-        <Body date={this.state.date}/>
+        <SearchField dateChange={this.onDateFieldChange} date={this.state.date} />
+        <Body date={this.state.date} apod={this.state.apod} t={this}/>
       </div>
     );
   }
