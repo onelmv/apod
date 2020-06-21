@@ -22,9 +22,10 @@ const Body =(props)=>{
                     
                     
                     {/* <img src={props.apod.url} className="db w-100 br2 br--top grow" alt={props.apod.title}/> */}
-                    <div>
+                    
+                    <a href={props.apod.url}>
                         {block}
-                    </div>
+                    </a>
 
                     <div className="pa2 ph3-ns pb3-ns">
                         <div className="dt w-100 mt1">
