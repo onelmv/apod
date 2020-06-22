@@ -5,13 +5,13 @@ const Body =(props)=>{
 
 
     let block = ""
-        if(props.apod.media_type === 'video'){
-            block =  <iframe title='video' className='db w-100  br2 br--top grow tc'  height='450' src={props.apod.url} ></iframe> 
-            console.log(props.apod.url)
-        }else{
-            console.log('image')
-            block = <img src={props.apod.url} className='db w-100 br2 br--top grow' alt={props.apod.title}/>
-        }
+    if(props.apod.media_type === 'video'){
+        block =  <iframe title='video' className='db w-100  br2 br--top grow tc'  height='450' src={props.apod.url} ></iframe> 
+        console.log(props.apod.url)
+    }else{
+        
+        block = <img src={props.apod.url} className='db w-100 br2 br--top grow' alt={props.apod.title}/>
+    }
     
     
     return (
