@@ -9,7 +9,7 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      date: new Date().toJSON().slice(0,10),
+      date: '', /* new Date().toJSON().slice(0,10) */// it's not working ,UTC timezone
       apod: {}
     }
   }
@@ -17,6 +17,10 @@ class App extends Component {
   /* ////////////////////////////////// */
 
   componentDidMount(){
+    let date = new Date();
+    let today = date.getFullYear()+'-'+("0"+(date.getMonth()+1)).slice(-2)+'-'+("0" + date.getDate()).slice(-2); //stackoverflow
+    this.setState({date:today})
+    
     this.fetchData(this.state.date);   
   }
 
@@ -30,7 +34,7 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    console.log('componentDidUpdate', this.state.date, prevState.date);
+    /* console.log('componentDidUpdate', this.state.date, prevState.date); */
     if (this.state.date !== prevState.date)
       this.fetchData(this.state.date);   
   }
