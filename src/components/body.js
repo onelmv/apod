@@ -32,12 +32,14 @@ const Body =(props)=>{
                             <div className="tc">
                                 <h1 className="f5 f4-ns">{props.apod.title}</h1>
                             </div>
-                            <div>
-                                <h2 className="f5 mv0">{props.date}</h2>
-                            </div>
                         </div>
                         <p className="f6 lh-copy pa2 mt2 mid-gray">{props.apod.explanation}</p>
+                        {/* if the image have copyright , incert , otherwise dont put nothing */}
+                        <h6 className='f6 ma1'>{props.apod.copyright?`\u00A9 ${props.apod.copyright}`:``}  </h6>
                     </div>
+                </div>
+                <div>
+                    <footer className='f6'>onelmv</footer>
                 </div>
             </div>
             

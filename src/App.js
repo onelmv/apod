@@ -29,7 +29,7 @@ class App extends Component {
 
     fetch(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=${nasa_key}`)
           .then(response=>response.json())
-          .then(json=>this.setState({apod:json})
+          .then(data=>this.setState({apod:data})
           )          
   }
 
@@ -41,7 +41,14 @@ class App extends Component {
 
   /* ////////////////////////////////// */
   onDateFieldChange =(event)=>{
-    this.setState({ date: event.target.value })
+    let date = new Date();
+    /* This control statement is for avoid to user change the date with th keyboard */
+    if(event.target.value <= date.getFullYear()+'-'+("0"+(date.getMonth()+1)).slice(-2)+'-'+("0" + date.getDate()).slice(-2)){
+      this.setState({ date: event.target.value })      
+    }/* else{ //this part is not necesary
+      console.log("date out of range",event.target.value )
+      this.setState({ date: date.getFullYear()+'-'+("0"+(date.getMonth()+1)).slice(-2)+'-'+("0" + date.getDate()).slice(-2) }) 
+    } */
      
     console.log("event:",event.target.value,"|state: ",this.state.date)     
   }
