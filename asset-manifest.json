@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/apod/static/css/main.523f09c5.chunk.css",
-    "main.js": "/apod/static/js/main.2d2a9f61.chunk.js",
-    "main.js.map": "/apod/static/js/main.2d2a9f61.chunk.js.map",
+    "main.js": "/apod/static/js/main.96000a52.chunk.js",
+    "main.js.map": "/apod/static/js/main.96000a52.chunk.js.map",
     "runtime-main.js": "/apod/static/js/runtime-main.ab529de2.js",
     "runtime-main.js.map": "/apod/static/js/runtime-main.ab529de2.js.map",
     "static/css/2.3c03f26f.chunk.css": "/apod/static/css/2.3c03f26f.chunk.css",
     "static/js/2.063f5b2f.chunk.js": "/apod/static/js/2.063f5b2f.chunk.js",
     "static/js/2.063f5b2f.chunk.js.map": "/apod/static/js/2.063f5b2f.chunk.js.map",
     "index.html": "/apod/index.html",
-    "precache-manifest.d0ab84c9ec4b30fd3e235b7b9e9adfd2.js": "/apod/precache-manifest.d0ab84c9ec4b30fd3e235b7b9e9adfd2.js",
+    "precache-manifest.443fadda76a9e38736318e0c04f6ad70.js": "/apod/precache-manifest.443fadda76a9e38736318e0c04f6ad70.js",
     "service-worker.js": "/apod/service-worker.js",
     "static/css/2.3c03f26f.chunk.css.map": "/apod/static/css/2.3c03f26f.chunk.css.map",
     "static/css/main.523f09c5.chunk.css.map": "/apod/static/css/main.523f09c5.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.3c03f26f.chunk.css",
     "static/js/2.063f5b2f.chunk.js",
     "static/css/main.523f09c5.chunk.css",
-    "static/js/main.2d2a9f61.chunk.js"
+    "static/js/main.96000a52.chunk.js"
   ]
 }
