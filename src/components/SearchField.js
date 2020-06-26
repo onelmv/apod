@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 
 
-const SearchField = (props) => {
+const SearchField = ({date,dateChange}) => {
     
-    let date = new Date();
-    let today = date.getFullYear()+'-'+("0"+(date.getMonth()+1)).slice(-2)+'-'+("0" + date.getDate()).slice(-2); //stackoverflow
+    let dateObj = new Date();
+    let today = dateObj.getFullYear()+'-'+("0"+(dateObj.getMonth()+1)).slice(-2)+'-'+("0" + dateObj.getDate()).slice(-2); //stackoverflow
     
 
     return (
@@ -17,8 +17,8 @@ const SearchField = (props) => {
                         id='date' 
                         min='1995-06-20' 
                         max= {today}
-                        value={props.date}
-                        onChange={props.dateChange}
+                        value={date}
+                        onChange={dateChange}
                />
             </div>
         </Fragment>
